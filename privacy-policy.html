@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8">
+<html lang="ko">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>냥냥펀치 서바이벌 개인정보처리방침 / Privacy Policy</title>
 <style>
@@ -19,117 +21,84 @@
   .en{margin-top:56px;padding-top:26px;border-top:2px solid #222;color:#333}
   footer{margin-top:44px;color:#888;font-size:13px}
   a{color:#1a56c4}
-</style></head><body><div class="wrap">
-
+</style>
+</head>
+<body><main class="wrap">
 <h1>냥냥펀치 서바이벌 개인정보처리방침</h1>
-<div class="date">시행일: 2026년 9월 6일</div>
+<div class="date">시행일: 2026년 10월 26일 · 버전 1.2.0부터 선택적 랭킹 기능 반영</div>
 
-<p>「냥냥펀치 서바이벌」(이하 "본 게임")은 이용자의 개인정보를 소중하게 다룹니다.
-본 게임은 <b>회원가입이 없고, 이름·연락처·위치 등 개인을 식별할 수 있는 정보를 직접 수집하지 않습니다.</b>
-다만 무료로 제공하기 위해 광고를 게재하며, 이 과정에서 광고 제공업체가 일부 정보를 수집할 수 있습니다.</p>
+<p>「냥냥펀치 서바이벌」(이하 “게임”)은 회원가입과 사용자가 입력하는 이름을 요구하지 않습니다. 버전 1.2.0부터 선택적으로 참가하는 랭킹은 기록을 서버에 전송합니다. 게임의 나머지 진행 정보는 기기에 저장됩니다. 선택적 보상형 광고에는 Google AdMob을 사용합니다.</p>
 
-<h2>1. 본 게임이 직접 수집하는 정보</h2>
-<p><b>없습니다.</b> 본 게임은 이용자의 정보를 외부 서버로 전송하지 않습니다.
-게임 진행 정보는 <b>이용자의 기기 안에만</b> 저장되며 개발자도 열람할 수 없습니다.</p>
+<h2>1. 기기에 저장하는 게임 정보</h2>
+<p>보유한 생선, 영구 강화, 최고 기록, 게임 진행과 플레이 통계, 소리·진동 설정 등을 앱 내부 저장소(<code>localStorage</code>)에 저장합니다. 랭킹에 참가하면 서버에서 발급한 자동 이름, 참가 번호, 참가 세대, 확인용 비밀값, 랭킹 최고 기록과 전송 대기 기록도 기기에 저장합니다. 마지막으로 확인한 순위는 표시를 위해 기기에 따로 저장될 수 있습니다.</p>
+<p>앱 삭제나 앱 데이터 삭제는 기기의 앱 정보를 제거합니다. 게임 안의 “기록 모두 지우기”는 기기의 게임 진행 기록을 초기화합니다. 이 동작들은 랭킹 서버에 삭제 요청을 보내지 않습니다. 서버의 랭킹 기록을 지우려면 먼저 게임 설정의 “내 랭킹 기록 지우기”를 완료해야 합니다.</p>
+
+<h2>2. 선택적 랭킹: 전송·이용·공개</h2>
+<p>랭킹에 참가할 때 서버는 자동 이름, 참가 번호, 참가 세대와 확인용 비밀값을 발급합니다. 서버는 확인용 비밀값의 원문 대신 해시를 저장합니다. 사용자가 직접 이름을 입력하는 기능은 없습니다.</p>
 <table>
-  <tr><th>기기에 저장되는 것</th><td>보유한 생선(게임 재화), 영구 강화 단계, 최고 기록, 소리·진동·음악 설정,
-    플레이 통계(생존 시간·처치 수·판 수 등)</td></tr>
-  <tr><th>저장 방식</th><td>앱 내부 저장소(<code>localStorage</code>)</td></tr>
-  <tr><th>전송 여부</th><td>전송하지 않음. 기기를 벗어나지 않습니다</td></tr>
-  <tr><th>삭제 방법</th><td>앱을 삭제하거나,
-    <b>설정 → 애플리케이션 → 냥냥펀치 서바이벌 → 저장공간 → 데이터 삭제</b></td></tr>
+  <tr><th>기록 제출 때 보내는 항목</th><td>참가 번호, 참가 세대, 확인용 비밀값, 집계 규칙 버전, 판 번호, 한 판 처치 수, 생존 시간, 판 시작 빌드, 앱 버전</td></tr>
+  <tr><th>서버에 저장하는 항목</th><td>자동 이름과 참가 정보, 확인용 비밀값 해시, 최고 한 판 기록(처치 수·판 번호·생존 시간·빌드·앱 버전·제출 시각), 중복 제출 방지용 이력(판 번호·내용 해시·처치 수·시각)</td></tr>
+  <tr><th>다른 이용자에게 보이는 항목</th><td>자동 이름, 처치 수, 순위 및 주변 순위 목록</td></tr>
 </table>
+<p>순위는 한 판 처치 수를 기준으로 합니다. 생존 시간은 기록 검토에 사용하며 순위나 동점 판정에 사용하지 않습니다. 서버는 Cloudflare Workers와 D1을 이용해 랭킹을 처리·저장합니다. 랭킹 통신에는 인터넷 연결이 필요합니다. 연결이 끊기면 전송 후보를 기기에 보관하고 연결 뒤 다시 보낼 수 있습니다. 랭킹에 참가하지 않아도 게임을 플레이할 수 있습니다.</p>
+<p>참가한 이용자가 랭킹을 조회할 때 앱은 참가 번호와 참가 세대를 보냅니다. 랭킹 삭제 요청에는 참가 번호·참가 세대·확인용 비밀값을 보냅니다.</p>
+<p>랭킹에서 다른 이용자의 이름을 길게 눌러 “기록 이상”을 신고하면 앱은 신고자의 참가 번호·세대·확인용 비밀값과 대상 자동 이름을 서버에 보냅니다. 서버는 신고자와 대상의 참가 세대, 신고 시각 및 처리 시각을 기록합니다. 신고만으로 자동으로 기록을 숨기지 않으며 운영자가 검토합니다.</p>
 
-<h2>2. 광고와 관련해 수집되는 정보</h2>
-<p>본 게임은 <b>Google AdMob</b>을 통해 보상형 동영상 광고를 제공합니다.
-광고를 볼지 여부는 이용자가 선택하며, 보지 않아도 게임을 계속할 수 있습니다.</p>
-<p>Google 및 광고 파트너는 광고 제공·측정·부정행위 방지를 위해 다음과 같은 정보를 수집·이용할 수 있습니다.</p>
-<ul>
-  <li><b>광고 ID</b>(Android 광고 식별자) — 개인을 직접 식별하지 않으며 이용자가 초기화하거나 삭제할 수 있습니다</li>
-  <li>기기 정보(모델·운영체제 버전·언어·국가 등)</li>
-  <li>IP 주소, 광고 노출·클릭 기록</li>
-</ul>
-<p>수집 주체는 Google이며, 처리 방식은 아래 정책을 따릅니다.</p>
-<ul>
-  <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google이 파트너 사이트·앱에서 정보를 사용하는 방법</a></li>
-  <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a></li>
-</ul>
-<p>광고 맞춤설정을 원하지 않으시면
-<b>설정 → 개인정보 보호 → 광고</b>에서 광고 ID를 삭제하거나 맞춤 광고를 해제할 수 있습니다.
-해제해도 광고는 계속 표시되지만 관심사 기반 맞춤이 이루어지지 않습니다.</p>
+<h2>3. 랭킹 끄기와 삭제</h2>
+<p>설정에서 “랭킹 참가 끄기”를 선택하면 새 기록 후보 생성과 전송을 멈춥니다. 이미 서버에 올라간 기록과 기기의 전송 대기 후보는 남습니다. 다시 켜면 보관된 후보가 전송될 수 있습니다.</p>
+<p>“내 랭킹 기록 지우기”를 선택하면 앱이 서버에 삭제를 요청합니다. 서버 삭제가 확인되면 공개 기록, 최고 기록, 제출 이력, 자동 이름과 이용자가 작성한 신고가 서버에서 지워지고, 기기의 랭킹 참가 정보와 대기 후보도 정리됩니다. 인터넷 연결이나 서버 응답에 문제가 있으면 앱은 삭제 대기 상태를 저장하고 다시 시도합니다. 삭제가 확인되기 전까지 서버 기록이 남을 수 있습니다.</p>
+<p>삭제 후에도 서버에는 지운 기록이 늦은 재전송으로 되살아나지 않게 하는 폐기 확인 정보인 참가 번호·참가 세대·확인용 비밀값 해시·참가 생성 시각·폐기 시각이 남습니다. 다른 이용자가 해당 참가자를 신고한 기록에는 대상 참가 세대에 대한 참조가 남을 수 있습니다. 이 항목들은 “내 랭킹 기록 지우기” 동작으로 함께 삭제되지 않습니다.</p>
+<p>앱을 삭제하거나 참가 정보를 잃어 앱에서 삭제할 수 없다면, 보관해 둔 참가 번호와 함께 아래 지원 메일로 문의할 수 있습니다. 참가 번호가 없으면 해당 랭킹 기록을 특정하지 못할 수 있습니다.</p>
 
-<h2>3. 앱이 요청하는 권한</h2>
-<table>
-  <tr><th>인터넷 · 네트워크 상태</th><td>광고를 불러오기 위해 사용합니다</td></tr>
-  <tr><th>진동</th><td>게임 내 타격·레벨업 진동 효과에 사용합니다. 게임 안에서 끌 수 있습니다</td></tr>
-  <tr><th>광고 ID</th><td>광고 제공 및 부정행위 방지에 사용합니다</td></tr>
-</table>
-<p>본 게임은 연락처·사진·위치·마이크·카메라 등에 접근하지 않습니다.</p>
+<h2>4. 광고 정보</h2>
+<p>게임은 Google AdMob을 통해 사용자가 선택하는 보상형 동영상 광고를 제공합니다. 광고를 보지 않아도 게임을 계속할 수 있습니다. Google 및 광고 파트너는 광고 제공·측정·부정행위 방지를 위해 광고 식별자(기기와 설정에 따라 이용 가능할 때), 기기 정보, 대략적인 위치 추정에 쓰일 수 있는 IP 주소, 광고 및 앱 이용 정보와 진단 정보를 처리할 수 있습니다. 광고 데이터는 랭킹 서버의 기록과 별도로 광고 제공업체가 처리합니다.</p>
+<p>광고 정보의 처리에 관해서는 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google의 파트너 사이트·앱 정보 이용 안내</a>와 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 참고하세요. 기기 설정의 광고 개인정보 선택을 이용할 수 있으며, 앱에서 “광고 개인정보 설정”이 제공되는 경우 선택을 다시 할 수 있습니다.</p>
 
-<h2>4. 아동 개인정보</h2>
-<p>본 게임은 만 14세 미만 아동을 주 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.
-만 14세 미만 아동이 개인정보를 제공한 사실을 알게 된 경우 지체 없이 해당 정보를 파기합니다.</p>
+<h2>5. 권한과 보관</h2>
+<p>인터넷·네트워크 상태는 선택적 랭킹과 광고에, 진동은 게임 효과에 사용합니다. 광고 식별자는 광고 제공 및 부정행위 방지에 사용될 수 있습니다. 게임은 연락처·사진·정확한 위치·마이크·카메라 접근 권한을 요청하지 않습니다.</p>
+<p>기기의 게임 정보는 앱 또는 앱 데이터를 삭제할 때 제거됩니다. 랭킹 최고 기록과 제출 이력은 참가 중 서버에 보관되며 “내 랭킹 기록 지우기”의 서버 처리로 삭제됩니다. 위 폐기 확인 정보와 다른 이용자의 신고 참조는 그 삭제 동작 뒤에도 남습니다. 광고 관련 자료의 보관은 Google의 정책을 따릅니다.</p>
 
-<h2>5. 보유 및 파기</h2>
-<p>본 게임이 기기에 저장하는 정보는 이용자가 앱을 삭제하거나 앱 데이터를 지우면 즉시 삭제됩니다.
-개발자는 별도의 사본을 보관하지 않습니다.
-광고 관련 정보의 보유 기간은 Google의 정책을 따릅니다.</p>
+<h2>6. 아동·문의·변경</h2>
+<p>게임은 만 14세 미만 아동을 주 대상으로 하지 않습니다. 개인정보 처리 또는 랭킹 기록 삭제에 관한 문의는 <a href="mailto:support@mgmagic.kr">support@mgmagic.kr</a>로 보내 주세요. 방침을 변경하면 이 페이지에 내용과 시행일을 게시합니다.</p>
 
-<h2>6. 이용자의 권리</h2>
-<ul>
-  <li>앱 데이터 삭제로 저장된 게임 정보를 언제든 지울 수 있습니다</li>
-  <li>기기 설정에서 광고 ID를 초기화하거나 맞춤 광고를 해제할 수 있습니다</li>
-  <li>아래 연락처로 개인정보 관련 문의를 하실 수 있습니다</li>
-</ul>
-
-<h2>7. 방침의 변경</h2>
-<p>본 방침이 변경되는 경우 이 페이지에 변경된 내용과 시행일을 게시합니다.
-중요한 변경이 있을 경우 앱 업데이트 안내를 통해 알립니다.</p>
-
-<h2>8. 문의</h2>
-<p>개인정보 관련 문의: <b><a href="mailto:support@mgmagic.kr">support@mgmagic.kr</a></b></p>
-
-<!-- ─────────────────────────────────────── -->
-<div class="en">
+<section class="en" lang="en">
 <h1>Nyang Nyang Punch Survival — Privacy Policy</h1>
-<div class="date">Effective: September 6, 2026</div>
+<div class="date">Effective: October 26, 2026 · Optional rankings from version 1.2.0</div>
 
-<p>Nyang Nyang Punch Survival ("the Game") does not require an account and does not
-directly collect personally identifiable information such as your name, contact details, or location.
-The Game is free and supported by advertising; our advertising provider may collect certain information.</p>
+<p>Nyang Nyang Punch Survival (the “Game”) does not require account registration or a name entered by the player. Starting with version 1.2.0, the optional ranking feature sends records to a server. Other game progress is stored on the device. We use Google AdMob for optional rewarded ads.</p>
 
-<h2>1. Information the Game collects</h2>
-<p><b>None.</b> The Game does not send any data to our servers. Progress is stored
-<b>only on your device</b> (<code>localStorage</code>) and is not accessible to the developer.
-Stored items include in-game currency, permanent upgrade levels, best records, audio/vibration
-settings, and play statistics (survival time, kills, number of runs).
-Uninstalling the app or clearing app data deletes this information.</p>
+<h2>1. Information stored on your device</h2>
+<p>The Game stores in-game currency, permanent upgrades, best records, game progress and play statistics, and audio and vibration settings in app storage (<code>localStorage</code>). If you join rankings, the device also stores the server-issued automatic name, participant ID, participation generation, verification secret, confirmed ranking best, and queued submissions. The last checked rank may be stored separately for display.</p>
+<p>Uninstalling the app or clearing app data removes the app's information from the device. “Reset all records” in the Game resets local game progress. None of these actions sends a deletion request to the ranking server. To remove a server ranking record, complete “Delete my ranking record” in the Game settings first.</p>
 
-<h2>2. Advertising</h2>
-<p>The Game shows optional rewarded video ads through <b>Google AdMob</b>.
-Google and its partners may collect your <b>Advertising ID</b>, device information
-(model, OS version, language, country), IP address, and ad impression/click data
-to deliver and measure ads and to prevent fraud. See
-<a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use our services</a> and the
-<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.
-You can reset your Advertising ID or opt out of personalized ads in
-<b>Settings → Privacy → Ads</b>.</p>
+<h2>2. Optional rankings: transfer, use, and display</h2>
+<p>When you join, the server issues an automatic name, participant ID, participation generation, and verification secret. The server stores a hash of the secret rather than the original secret. Players cannot enter their own display names.</p>
+<table>
+  <tr><th>Sent with a record submission</th><td>Participant ID, participation generation, verification secret, scoring rules version, run ID, kills in that run, survival time, build at the start of the run, and app version</td></tr>
+  <tr><th>Stored on the server</th><td>Automatic name and participation details; secret hash; best run record (kills, run ID, survival time, build, app version, submission time); and duplicate-submission history (run ID, content hash, kills, time)</td></tr>
+  <tr><th>Shown to other players</th><td>Automatic name, kills, rank, and nearby leaderboard entries</td></tr>
+</table>
+<p>Rank is based on kills in one run. Survival time is used to review records, not to rank players or break ties. We use Cloudflare Workers and D1 to process and store ranking data. Rankings need an internet connection. If a connection fails, a candidate submission may remain on the device and be sent later. You can play without joining rankings.</p>
+<p>When a participant views the leaderboard, the app sends the participant ID and generation. A ranking deletion request sends the participant ID, generation, and verification secret.</p>
+<p>If you long-press another player's name to report an unusual record, the app sends your participant ID, generation, and verification secret, plus the target's automatic name. The server stores the reporter and target generations, report time, and resolution time. A report alone does not automatically hide a record; an operator reviews it.</p>
 
-<h2>3. Permissions</h2>
-<p>Internet and network state (to load ads), Vibration (in-game haptics, can be turned off),
-and Advertising ID (ad delivery and fraud prevention). The Game does not access contacts,
-photos, location, microphone, or camera.</p>
+<h2>3. Turning rankings off and deleting records</h2>
+<p>“Turn off ranking participation” stops creation and transmission of new record candidates. Records already on the server and queued submissions on the device remain. Turning participation back on may send those queued submissions.</p>
+<p>“Delete my ranking record” sends a deletion request to the server. After server deletion is confirmed, the public record, best record, submission history, automatic name, and reports you made are removed from the server; ranking participation details and queued submissions are cleared from the device. If the connection or server request fails, the app keeps a pending-deletion state and retries. Server records may remain until deletion is confirmed.</p>
+<p>After deletion, the server retains a revocation marker consisting of the participant ID, participation generation, verification-secret hash, creation time, and revocation time to prevent late submissions from restoring a deleted record. Reports made by others about the deleted participation may retain a reference to its generation. These items are not removed by “Delete my ranking record.”</p>
+<p>If you uninstall the app or lose participation details and cannot delete in the app, you may contact the support email below with a participant ID you kept. Without that ID, we may not be able to locate the ranking record.</p>
 
-<h2>4. Children</h2>
-<p>The Game is not directed to children under 14 and does not knowingly collect their personal
-information. If we learn that such information has been provided, we will delete it promptly.</p>
+<h2>4. Advertising information</h2>
+<p>The Game offers optional rewarded video ads through Google AdMob. You can continue playing without watching ads. Google and its advertising partners may process an advertising identifier (when available under device settings), device information, IP address that may be used to estimate approximate location, ad and app interaction information, and diagnostic information to deliver and measure ads and prevent fraud. The advertising provider handles ad data separately from the ranking server.</p>
+<p>For advertising data practices, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from partner sites and apps</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. You can use your device's advertising privacy controls. Where the Game provides “Ad privacy settings,” you can revisit your choice there.</p>
 
-<h2>5. Changes</h2>
-<p>Any changes to this policy will be posted on this page with a new effective date.</p>
+<h2>5. Permissions and retention</h2>
+<p>Internet and network state are used for optional rankings and ads; vibration is used for in-game effects. An advertising identifier may be used for ad delivery and fraud prevention. The Game does not request access to contacts, photos, precise location, microphone, or camera.</p>
+<p>Game information on the device is removed when you uninstall the app or clear app data. Ranking best records and submission history remain on the server during participation and are deleted when the server processes “Delete my ranking record.” The revocation marker and references in reports made by others remain after that action. Google's policies govern retention of advertising data.</p>
 
-<h2>6. Contact</h2>
-<p>Questions: <b><a href="mailto:support@mgmagic.kr">support@mgmagic.kr</a></b></p>
-</div>
+<h2>6. Children, contact, and changes</h2>
+<p>The Game is not directed primarily to children under 14. For questions about data handling or ranking record deletion, contact <a href="mailto:support@mgmagic.kr">support@mgmagic.kr</a>. Changes to this policy and their effective date will be posted on this page.</p>
+</section>
 
 <footer>냥냥펀치 서바이벌 · Nyang Nyang Punch Survival</footer>
-</div></body></html>
+</main></body></html>
